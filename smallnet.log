@@ -1,0 +1,140 @@
+ =========================== Read in the Graph ===========================
+Add Vertex: A
+Add Vertex: B
+Add Vertex: C
+Add Vertex: D
+Add Vertex: E
+Add Vertex: F
+Add Edge: A - B : 1.0
+Add Edge: A - D : 1.0
+Add Edge: B - C : 1.0
+Add Edge: C - D : 1.0
+Add Edge: B - E : 1.0
+Add Edge: C - F : 1.0
+Add Edge: D - F : 1.0
+Add Edge: E - F : 1.0
+
+=============================== start DW iter 1  ==========================
+
+------------------------------ set new edge costs -------------------------
+New Cost: A - B : 1.0
+New Cost: A - D : 1.0
+New Cost: B - C : 1.0
+New Cost: C - D : 1.0
+New Cost: B - E : 1.0
+New Cost: C - F : 1.0
+New Cost: D - F : 1.0
+New Cost: E - F : 1.0
+------------- find new routes by solving shortest path problem  ------------
+Routing demand 0)  A - F : 3.0
+   Path: A - D - F
+   Cost (using original edge costs) = 6.0
+   Cost (using new edge costs)      = 6.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 6.0  => red_cost = -9994.0
+   => add column 2 for demand 0
+Routing demand 1)  E - D : 2.0
+   Path: E - F - D
+   Cost (using original edge costs) = 4.0
+   Cost (using new edge costs)      = 4.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 4.0  => red_cost = -9996.0
+   => add column 3 for demand 1
+---------------------------- solve DW Master LP ----------------------------
+Calling LP solver EMSOL:
+--------------------------- report LP solution -----------------------------
+Routes usage in LP solution:
+  Dummy Route demand 0 = 0.7999999999999999
+  Dummy Route demand 1 = 0.0
+  A - D - F            = 0.20000000000000004
+  E - F - D            = 1.0
+Edge usage and multipliers in LP solution:
+  edge A - B: 0.0 / 2.5    -0.0
+  edge A - D: 0.6000000000000001 / 2.5    -0.0
+  edge B - C: 0.0 / 2.5    -0.0
+  edge C - D: 0.0 / 2.5    -0.0
+  edge B - E: 0.0 / 2.5    -0.0
+  edge C - F: 0.0 / 2.5    -0.0
+  edge D - F: 2.6 / 2.6    3331.333333333333
+  edge E - F: 2.0 / 2.5    -0.0
+
+=============================== start DW iter 2  ==========================
+
+------------------------------ set new edge costs -------------------------
+New Cost: A - B : 1.0
+New Cost: A - D : 1.0
+New Cost: B - C : 1.0
+New Cost: C - D : 1.0
+New Cost: B - E : 1.0
+New Cost: C - F : 1.0
+New Cost: D - F : 3332.333333333333
+New Cost: E - F : 1.0
+------------- find new routes by solving shortest path problem  ------------
+Routing demand 0)  A - F : 3.0
+   Path: A - B - C - F
+   Cost (using original edge costs) = 9.0
+   Cost (using new edge costs)      = 9.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 9.0  => red_cost = -9991.0
+   => add column 4 for demand 0
+Routing demand 1)  E - D : 2.0
+   Path: E - B - A - D
+   Cost (using original edge costs) = 6.0
+   Cost (using new edge costs)      = 6.0  (this equals col_cost below)
+   RED_COST: cstar = 6666.666666666666 col_cost = 6.0  => red_cost = -6660.666666666666
+   => add column 5 for demand 1
+---------------------------- solve DW Master LP ----------------------------
+Calling LP solver EMSOL:
+--------------------------- report LP solution -----------------------------
+Routes usage in LP solution:
+  Dummy Route demand 0 = 0.0
+  Dummy Route demand 1 = 0.0
+  A - D - F            = 0.20000000000000004
+  E - F - D            = 1.0
+  A - B - C - F        = 0.7999999999999999
+  E - B - A - D        = 0.0
+Edge usage and multipliers in LP solution:
+  edge A - B: 2.4 / 2.5    -0.0
+  edge A - D: 0.6000000000000001 / 2.5    -0.0
+  edge B - C: 2.4 / 2.5    -0.0
+  edge C - D: 0.0 / 2.5    -0.0
+  edge B - E: 0.0 / 2.5    -0.0
+  edge C - F: 2.4 / 2.5    -0.0
+  edge D - F: 2.6 / 2.6    1.0
+  edge E - F: 2.0 / 2.5    -0.0
+
+=============================== start DW iter 3  ==========================
+
+------------------------------ set new edge costs -------------------------
+New Cost: A - B : 1.0
+New Cost: A - D : 1.0
+New Cost: B - C : 1.0
+New Cost: C - D : 1.0
+New Cost: B - E : 1.0
+New Cost: C - F : 1.0
+New Cost: D - F : 2.0
+New Cost: E - F : 1.0
+------------- find new routes by solving shortest path problem  ------------
+Routing demand 0)  A - F : 3.0
+   Path: A - D - F
+   Cost (using original edge costs) = 6.0
+   Cost (using new edge costs)      = 9.0  (this equals col_cost below)
+   RED_COST: cstar = 9.0 col_cost = 9.0  => red_cost = 0.0
+   => column not added
+Routing demand 1)  E - D : 2.0
+   Path: E - F - D
+   Cost (using original edge costs) = 4.0
+   Cost (using new edge costs)      = 6.0  (this equals col_cost below)
+   RED_COST: cstar = 6.0 col_cost = 6.0  => red_cost = 0.0
+   => column not added
+No columns added => D-W has converged!
+
+
+================== Solution ==================
+Routing demand 0)  A - F : 3.0
+ Route 2: weight=0.20000000000000004  cost=6.0
+    Edges used:   1  6
+ Route 4: weight=0.7999999999999999  cost=9.0
+    Edges used:   0  2  5
+Routing demand 1)  E - D : 2.0
+ Route 3: weight=1.0  cost=4.0
+    Edges used:   6  7
+ EMSOL: ifail= 0, f=   8005.2, LP iters:  4
+ EMSOL: ifail= 0, f=   12.4, LP iters:  6

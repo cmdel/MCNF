@@ -1,0 +1,577 @@
+ =========================== Read in the Graph ===========================
+Add Vertex: INV
+Add Vertex: GLA
+Add Vertex: EDI
+Add Vertex: CLS
+Add Vertex: NCL
+Add Vertex: LIV
+Add Vertex: MCH
+Add Vertex: LDS
+Add Vertex: BGH
+Add Vertex: COV
+Add Vertex: OXD
+Add Vertex: BRS
+Add Vertex: RDG
+Add Vertex: LON
+Add Vertex: PLY
+Add Vertex: STH
+Add Vertex: BTN
+Add Vertex: DOV
+Add Edge: INV - GLA : 186.0
+Add Edge: INV - EDI : 163.0
+Add Edge: GLA - EDI : 44.0
+Add Edge: GLA - CLS : 104.0
+Add Edge: CLS - EDI : 96.0
+Add Edge: NCL - EDI : 123.0
+Add Edge: CLS - NCL : 60.0
+Add Edge: CLS - LDS : 118.0
+Add Edge: NCL - LDS : 99.0
+Add Edge: LIV - MCH : 34.0
+Add Edge: MCH - CLS : 116.0
+Add Edge: MCH - LDS : 70.0
+Add Edge: BGH - MCH : 80.0
+Add Edge: COV - LDS : 110.0
+Add Edge: BGH - COV : 39.0
+Add Edge: BGH - OXD : 57.0
+Add Edge: OXD - COV : 74.0
+Add Edge: BRS - BGH : 77.0
+Add Edge: RDG - OXD : 26.0
+Add Edge: BRS - RDG : 74.0
+Add Edge: COV - LON : 86.0
+Add Edge: OXD - LON : 48.0
+Add Edge: RDG - LON : 42.0
+Add Edge: PLY - BRS : 126.0
+Add Edge: PLY - STH : 155.0
+Add Edge: RDG - STH : 36.0
+Add Edge: STH - LON : 72.0
+Add Edge: BTN - STH : 44.0
+Add Edge: BTN - LON : 56.0
+Add Edge: DOV - LON : 80.0
+Add Edge: BTN - DOV : 84.0
+
+=============================== start DW iter 1  ==========================
+
+------------------------------ set new edge costs -------------------------
+New Cost: INV - GLA : 186.0
+New Cost: INV - EDI : 163.0
+New Cost: GLA - EDI : 44.0
+New Cost: GLA - CLS : 104.0
+New Cost: CLS - EDI : 96.0
+New Cost: NCL - EDI : 123.0
+New Cost: CLS - NCL : 60.0
+New Cost: CLS - LDS : 118.0
+New Cost: NCL - LDS : 99.0
+New Cost: LIV - MCH : 34.0
+New Cost: MCH - CLS : 116.0
+New Cost: MCH - LDS : 70.0
+New Cost: BGH - MCH : 80.0
+New Cost: COV - LDS : 110.0
+New Cost: BGH - COV : 39.0
+New Cost: BGH - OXD : 57.0
+New Cost: OXD - COV : 74.0
+New Cost: BRS - BGH : 77.0
+New Cost: RDG - OXD : 26.0
+New Cost: BRS - RDG : 74.0
+New Cost: COV - LON : 86.0
+New Cost: OXD - LON : 48.0
+New Cost: RDG - LON : 42.0
+New Cost: PLY - BRS : 126.0
+New Cost: PLY - STH : 155.0
+New Cost: RDG - STH : 36.0
+New Cost: STH - LON : 72.0
+New Cost: BTN - STH : 44.0
+New Cost: BTN - LON : 56.0
+New Cost: DOV - LON : 80.0
+New Cost: BTN - DOV : 84.0
+------------- find new routes by solving shortest path problem  ------------
+Routing demand 0)  INV - DOV : 1.5
+   Path: INV - EDI - CLS - MCH - BGH - OXD - LON - DOV
+   Cost (using original edge costs) = 960.0
+   Cost (using new edge costs)      = 960.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 960.0  => red_cost = -9040.0
+   => add column 2 for demand 0
+Routing demand 1)  EDI - PLY : 2.0
+   Path: EDI - CLS - MCH - BGH - BRS - PLY
+   Cost (using original edge costs) = 990.0
+   Cost (using new edge costs)      = 990.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 990.0  => red_cost = -9010.0
+   => add column 3 for demand 1
+---------------------------- solve DW Master LP ----------------------------
+Calling LP solver EMSOL:
+--------------------------- report LP solution -----------------------------
+Routes usage in LP solution:
+  Dummy Route demand 0 = 0.6666666666666667
+  Dummy Route demand 1 = 1.0
+  INV - EDI - CLS - MCH - BGH - OXD - LON - DOV = 0.3333333333333333
+  EDI - CLS - MCH - BGH - BRS - PLY = 0.0
+Edge usage and multipliers in LP solution:
+  edge INV - GLA: 0.0 / 0.5    -0.0
+  edge INV - EDI: 0.5 / 1.0    -0.0
+  edge GLA - EDI: 0.0 / 2.0    -0.0
+  edge GLA - CLS: 0.0 / 2.0    -0.0
+  edge CLS - EDI: 0.5 / 0.5    6026.666666666666
+  edge NCL - EDI: 0.0 / 1.0    -0.0
+  edge CLS - NCL: 0.0 / 1.0    -0.0
+  edge CLS - LDS: 0.0 / 0.5    -0.0
+  edge NCL - LDS: 0.0 / 1.5    -0.0
+  edge LIV - MCH: 0.0 / 2.0    -0.0
+  edge MCH - CLS: 0.5 / 2.0    -0.0
+  edge MCH - LDS: 0.0 / 2.0    -0.0
+  edge BGH - MCH: 0.5 / 3.0    -0.0
+  edge COV - LDS: 0.0 / 1.5    -0.0
+  edge BGH - COV: 0.0 / 1.5    -0.0
+  edge BGH - OXD: 0.5 / 3.0    -0.0
+  edge OXD - COV: 0.0 / 2.0    -0.0
+  edge BRS - BGH: 0.0 / 2.0    -0.0
+  edge RDG - OXD: 0.0 / 2.0    -0.0
+  edge BRS - RDG: 0.0 / 2.0    -0.0
+  edge COV - LON: 0.0 / 2.0    -0.0
+  edge OXD - LON: 0.5 / 4.0    -0.0
+  edge RDG - LON: 0.0 / 3.0    -0.0
+  edge PLY - BRS: 0.0 / 2.0    -0.0
+  edge PLY - STH: 0.0 / 1.5    -0.0
+  edge RDG - STH: 0.0 / 2.0    -0.0
+  edge STH - LON: 0.0 / 3.0    -0.0
+  edge BTN - STH: 0.0 / 2.0    -0.0
+  edge BTN - LON: 0.0 / 2.0    -0.0
+  edge DOV - LON: 0.5 / 3.0    -0.0
+  edge BTN - DOV: 0.0 / 2.0    -0.0
+
+=============================== start DW iter 2  ==========================
+
+------------------------------ set new edge costs -------------------------
+New Cost: INV - GLA : 186.0
+New Cost: INV - EDI : 163.0
+New Cost: GLA - EDI : 44.0
+New Cost: GLA - CLS : 104.0
+New Cost: CLS - EDI : 6122.666666666666
+New Cost: NCL - EDI : 123.0
+New Cost: CLS - NCL : 60.0
+New Cost: CLS - LDS : 118.0
+New Cost: NCL - LDS : 99.0
+New Cost: LIV - MCH : 34.0
+New Cost: MCH - CLS : 116.0
+New Cost: MCH - LDS : 70.0
+New Cost: BGH - MCH : 80.0
+New Cost: COV - LDS : 110.0
+New Cost: BGH - COV : 39.0
+New Cost: BGH - OXD : 57.0
+New Cost: OXD - COV : 74.0
+New Cost: BRS - BGH : 77.0
+New Cost: RDG - OXD : 26.0
+New Cost: BRS - RDG : 74.0
+New Cost: COV - LON : 86.0
+New Cost: OXD - LON : 48.0
+New Cost: RDG - LON : 42.0
+New Cost: PLY - BRS : 126.0
+New Cost: PLY - STH : 155.0
+New Cost: RDG - STH : 36.0
+New Cost: STH - LON : 72.0
+New Cost: BTN - STH : 44.0
+New Cost: BTN - LON : 56.0
+New Cost: DOV - LON : 80.0
+New Cost: BTN - DOV : 84.0
+------------- find new routes by solving shortest path problem  ------------
+Routing demand 0)  INV - DOV : 1.5
+   Path: INV - EDI - NCL - LDS - COV - LON - DOV
+   Cost (using original edge costs) = 991.5
+   Cost (using new edge costs)      = 991.5  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 991.5  => red_cost = -9008.5
+   => add column 4 for demand 0
+Routing demand 1)  EDI - PLY : 2.0
+   Path: EDI - GLA - CLS - MCH - BGH - BRS - PLY
+   Cost (using original edge costs) = 1094.0
+   Cost (using new edge costs)      = 1094.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 1094.0  => red_cost = -8906.0
+   => add column 5 for demand 1
+---------------------------- solve DW Master LP ----------------------------
+Calling LP solver EMSOL:
+--------------------------- report LP solution -----------------------------
+Routes usage in LP solution:
+  Dummy Route demand 0 = 0.3333333333333334
+  Dummy Route demand 1 = 0.0
+  INV - EDI - CLS - MCH - BGH - OXD - LON - DOV = 0.0
+  EDI - CLS - MCH - BGH - BRS - PLY = 0.25
+  INV - EDI - NCL - LDS - COV - LON - DOV = 0.6666666666666666
+  EDI - GLA - CLS - MCH - BGH - BRS - PLY = 0.75
+Edge usage and multipliers in LP solution:
+  edge INV - GLA: 0.0 / 0.5    -0.0
+  edge INV - EDI: 1.0 / 1.0    1521.6666666666665
+  edge GLA - EDI: 1.5 / 2.0    -0.0
+  edge GLA - CLS: 1.5 / 2.0    -0.0
+  edge CLS - EDI: 0.5 / 0.5    52.0
+  edge NCL - EDI: 1.0 / 1.0    4484.0
+  edge CLS - NCL: 0.0 / 1.0    -0.0
+  edge CLS - LDS: 0.0 / 0.5    -0.0
+  edge NCL - LDS: 1.0 / 1.5    -0.0
+  edge LIV - MCH: 0.0 / 2.0    -0.0
+  edge MCH - CLS: 2.0 / 2.0    4453.0
+  edge MCH - LDS: 0.0 / 2.0    -0.0
+  edge BGH - MCH: 2.0 / 3.0    -0.0
+  edge COV - LDS: 1.0 / 1.5    -0.0
+  edge BGH - COV: 0.0 / 1.5    -0.0
+  edge BGH - OXD: 0.0 / 3.0    -0.0
+  edge OXD - COV: 0.0 / 2.0    -0.0
+  edge BRS - BGH: 2.0 / 2.0    -0.0
+  edge RDG - OXD: 0.0 / 2.0    -0.0
+  edge BRS - RDG: 0.0 / 2.0    -0.0
+  edge COV - LON: 1.0 / 2.0    -0.0
+  edge OXD - LON: 0.0 / 4.0    -0.0
+  edge RDG - LON: 0.0 / 3.0    -0.0
+  edge PLY - BRS: 2.0 / 2.0    -0.0
+  edge PLY - STH: 0.0 / 1.5    -0.0
+  edge RDG - STH: 0.0 / 2.0    -0.0
+  edge STH - LON: 0.0 / 3.0    -0.0
+  edge BTN - STH: 0.0 / 2.0    -0.0
+  edge BTN - LON: 0.0 / 2.0    -0.0
+  edge DOV - LON: 1.0 / 3.0    -0.0
+  edge BTN - DOV: 0.0 / 2.0    -0.0
+
+=============================== start DW iter 3  ==========================
+
+------------------------------ set new edge costs -------------------------
+New Cost: INV - GLA : 186.0
+New Cost: INV - EDI : 1684.6666666666665
+New Cost: GLA - EDI : 44.0
+New Cost: GLA - CLS : 104.0
+New Cost: CLS - EDI : 148.0
+New Cost: NCL - EDI : 4607.0
+New Cost: CLS - NCL : 60.0
+New Cost: CLS - LDS : 118.0
+New Cost: NCL - LDS : 99.0
+New Cost: LIV - MCH : 34.0
+New Cost: MCH - CLS : 4569.0
+New Cost: MCH - LDS : 70.0
+New Cost: BGH - MCH : 80.0
+New Cost: COV - LDS : 110.0
+New Cost: BGH - COV : 39.0
+New Cost: BGH - OXD : 57.0
+New Cost: OXD - COV : 74.0
+New Cost: BRS - BGH : 77.0
+New Cost: RDG - OXD : 26.0
+New Cost: BRS - RDG : 74.0
+New Cost: COV - LON : 86.0
+New Cost: OXD - LON : 48.0
+New Cost: RDG - LON : 42.0
+New Cost: PLY - BRS : 126.0
+New Cost: PLY - STH : 155.0
+New Cost: RDG - STH : 36.0
+New Cost: STH - LON : 72.0
+New Cost: BTN - STH : 44.0
+New Cost: BTN - LON : 56.0
+New Cost: DOV - LON : 80.0
+New Cost: BTN - DOV : 84.0
+------------- find new routes by solving shortest path problem  ------------
+Routing demand 0)  INV - DOV : 1.5
+   Path: INV - GLA - CLS - LDS - COV - LON - DOV
+   Cost (using original edge costs) = 1026.0
+   Cost (using new edge costs)      = 1026.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 1026.0  => red_cost = -8974.0
+   => add column 6 for demand 0
+Routing demand 1)  EDI - PLY : 2.0
+   Path: EDI - CLS - LDS - COV - BGH - BRS - PLY
+   Cost (using original edge costs) = 1132.0
+   Cost (using new edge costs)      = 1236.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 1236.0  => red_cost = -8764.0
+   => add column 7 for demand 1
+---------------------------- solve DW Master LP ----------------------------
+Calling LP solver EMSOL:
+--------------------------- report LP solution -----------------------------
+Routes usage in LP solution:
+  Dummy Route demand 0 = 1.1102230246251565E-16
+  Dummy Route demand 1 = 0.0
+  INV - EDI - CLS - MCH - BGH - OXD - LON - DOV = 0.0
+  EDI - CLS - MCH - BGH - BRS - PLY = 0.25
+  INV - EDI - NCL - LDS - COV - LON - DOV = 0.6666666666666666
+  EDI - GLA - CLS - MCH - BGH - BRS - PLY = 0.75
+  INV - GLA - CLS - LDS - COV - LON - DOV = 0.3333333333333333
+  EDI - CLS - LDS - COV - BGH - BRS - PLY = 0.0
+Edge usage and multipliers in LP solution:
+  edge INV - GLA: 0.5 / 0.5    1529.6666666666665
+  edge INV - EDI: 1.0 / 1.0    1521.6666666666665
+  edge GLA - EDI: 1.5 / 2.0    -0.0
+  edge GLA - CLS: 2.0 / 2.0    4453.0
+  edge CLS - EDI: 0.5 / 0.5    4505.0
+  edge NCL - EDI: 1.0 / 1.0    4484.0
+  edge CLS - NCL: 0.0 / 1.0    -0.0
+  edge CLS - LDS: 0.5 / 0.5    -0.0
+  edge NCL - LDS: 1.0 / 1.5    -0.0
+  edge LIV - MCH: 0.0 / 2.0    -0.0
+  edge MCH - CLS: 2.0 / 2.0    -0.0
+  edge MCH - LDS: 0.0 / 2.0    -0.0
+  edge BGH - MCH: 2.0 / 3.0    -0.0
+  edge COV - LDS: 1.5 / 1.5    -0.0
+  edge BGH - COV: 0.0 / 1.5    -0.0
+  edge BGH - OXD: 0.0 / 3.0    -0.0
+  edge OXD - COV: 0.0 / 2.0    -0.0
+  edge BRS - BGH: 2.0 / 2.0    -0.0
+  edge RDG - OXD: 0.0 / 2.0    -0.0
+  edge BRS - RDG: 0.0 / 2.0    -0.0
+  edge COV - LON: 1.5 / 2.0    -0.0
+  edge OXD - LON: 0.0 / 4.0    -0.0
+  edge RDG - LON: 0.0 / 3.0    -0.0
+  edge PLY - BRS: 2.0 / 2.0    -0.0
+  edge PLY - STH: 0.0 / 1.5    -0.0
+  edge RDG - STH: 0.0 / 2.0    -0.0
+  edge STH - LON: 0.0 / 3.0    -0.0
+  edge BTN - STH: 0.0 / 2.0    -0.0
+  edge BTN - LON: 0.0 / 2.0    -0.0
+  edge DOV - LON: 1.5 / 3.0    -0.0
+  edge BTN - DOV: 0.0 / 2.0    -0.0
+
+=============================== start DW iter 4  ==========================
+
+------------------------------ set new edge costs -------------------------
+New Cost: INV - GLA : 1715.6666666666665
+New Cost: INV - EDI : 1684.6666666666665
+New Cost: GLA - EDI : 44.0
+New Cost: GLA - CLS : 4557.0
+New Cost: CLS - EDI : 4601.0
+New Cost: NCL - EDI : 4607.0
+New Cost: CLS - NCL : 60.0
+New Cost: CLS - LDS : 118.0
+New Cost: NCL - LDS : 99.0
+New Cost: LIV - MCH : 34.0
+New Cost: MCH - CLS : 116.0
+New Cost: MCH - LDS : 70.0
+New Cost: BGH - MCH : 80.0
+New Cost: COV - LDS : 110.0
+New Cost: BGH - COV : 39.0
+New Cost: BGH - OXD : 57.0
+New Cost: OXD - COV : 74.0
+New Cost: BRS - BGH : 77.0
+New Cost: RDG - OXD : 26.0
+New Cost: BRS - RDG : 74.0
+New Cost: COV - LON : 86.0
+New Cost: OXD - LON : 48.0
+New Cost: RDG - LON : 42.0
+New Cost: PLY - BRS : 126.0
+New Cost: PLY - STH : 155.0
+New Cost: RDG - STH : 36.0
+New Cost: STH - LON : 72.0
+New Cost: BTN - STH : 44.0
+New Cost: BTN - LON : 56.0
+New Cost: DOV - LON : 80.0
+New Cost: BTN - DOV : 84.0
+------------- find new routes by solving shortest path problem  ------------
+Routing demand 0)  INV - DOV : 1.5
+   Path: INV - GLA - CLS - MCH - BGH - OXD - LON - DOV
+   Cost (using original edge costs) = 1006.5
+   Cost (using new edge costs)      = 9980.5  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 9980.5  => red_cost = -19.5
+   => add column 8 for demand 0
+Routing demand 1)  EDI - PLY : 2.0
+   Path: EDI - CLS - MCH - BGH - BRS - PLY
+   Cost (using original edge costs) = 990.0
+   Cost (using new edge costs)      = 10000.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 10000.0  => red_cost = 0.0
+   => column not added
+---------------------------- solve DW Master LP ----------------------------
+Calling LP solver EMSOL:
+--------------------------- report LP solution -----------------------------
+Routes usage in LP solution:
+  Dummy Route demand 0 = 1.1102230246251565E-16
+  Dummy Route demand 1 = 0.0
+  INV - EDI - CLS - MCH - BGH - OXD - LON - DOV = 0.0
+  EDI - CLS - MCH - BGH - BRS - PLY = 0.25
+  INV - EDI - NCL - LDS - COV - LON - DOV = 0.6666666666666666
+  EDI - GLA - CLS - MCH - BGH - BRS - PLY = 0.75
+  INV - GLA - CLS - LDS - COV - LON - DOV = 0.3333333333333333
+  EDI - CLS - LDS - COV - BGH - BRS - PLY = 0.0
+  INV - GLA - CLS - MCH - BGH - OXD - LON - DOV = 0.0
+Edge usage and multipliers in LP solution:
+  edge INV - GLA: 0.5 / 0.5    1542.6666666666665
+  edge INV - EDI: 1.0 / 1.0    1521.6666666666665
+  edge GLA - EDI: 1.5 / 2.0    -0.0
+  edge GLA - CLS: 2.0 / 2.0    -0.0
+  edge CLS - EDI: 0.5 / 0.5    52.0
+  edge NCL - EDI: 1.0 / 1.0    44.0
+  edge CLS - NCL: 0.0 / 1.0    -0.0
+  edge CLS - LDS: 0.5 / 0.5    -0.0
+  edge NCL - LDS: 1.0 / 1.5    -0.0
+  edge LIV - MCH: 0.0 / 2.0    -0.0
+  edge MCH - CLS: 2.0 / 2.0    4453.0
+  edge MCH - LDS: 0.0 / 2.0    -0.0
+  edge BGH - MCH: 2.0 / 3.0    -0.0
+  edge COV - LDS: 1.5 / 1.5    4440.0
+  edge BGH - COV: 0.0 / 1.5    -58.0
+  edge BGH - OXD: 0.0 / 3.0    -0.0
+  edge OXD - COV: 0.0 / 2.0    -0.0
+  edge BRS - BGH: 2.0 / 2.0    -0.0
+  edge RDG - OXD: 0.0 / 2.0    -0.0
+  edge BRS - RDG: 0.0 / 2.0    -0.0
+  edge COV - LON: 1.5 / 2.0    -0.0
+  edge OXD - LON: 0.0 / 4.0    -0.0
+  edge RDG - LON: 0.0 / 3.0    -0.0
+  edge PLY - BRS: 2.0 / 2.0    -0.0
+  edge PLY - STH: 0.0 / 1.5    -0.0
+  edge RDG - STH: 0.0 / 2.0    -0.0
+  edge STH - LON: 0.0 / 3.0    -0.0
+  edge BTN - STH: 0.0 / 2.0    -0.0
+  edge BTN - LON: 0.0 / 2.0    -0.0
+  edge DOV - LON: 1.5 / 3.0    -0.0
+  edge BTN - DOV: 0.0 / 2.0    -0.0
+
+=============================== start DW iter 5  ==========================
+
+------------------------------ set new edge costs -------------------------
+New Cost: INV - GLA : 1728.6666666666665
+New Cost: INV - EDI : 1684.6666666666665
+New Cost: GLA - EDI : 44.0
+New Cost: GLA - CLS : 104.0
+New Cost: CLS - EDI : 148.0
+New Cost: NCL - EDI : 167.0
+New Cost: CLS - NCL : 60.0
+New Cost: CLS - LDS : 118.0
+New Cost: NCL - LDS : 99.0
+New Cost: LIV - MCH : 34.0
+New Cost: MCH - CLS : 4569.0
+New Cost: MCH - LDS : 70.0
+New Cost: BGH - MCH : 80.0
+New Cost: COV - LDS : 4550.0
+New Cost: BGH - COV : -19.0
+New Cost: BGH - OXD : 57.0
+New Cost: OXD - COV : 74.0
+New Cost: BRS - BGH : 77.0
+New Cost: RDG - OXD : 26.0
+New Cost: BRS - RDG : 74.0
+New Cost: COV - LON : 86.0
+New Cost: OXD - LON : 48.0
+New Cost: RDG - LON : 42.0
+New Cost: PLY - BRS : 126.0
+New Cost: PLY - STH : 155.0
+New Cost: RDG - STH : 36.0
+New Cost: STH - LON : 72.0
+New Cost: BTN - STH : 44.0
+New Cost: BTN - LON : 56.0
+New Cost: DOV - LON : 80.0
+New Cost: BTN - DOV : 84.0
+------------- find new routes by solving shortest path problem  ------------
+Routing demand 0)  INV - DOV : 1.5
+   Path: INV - EDI - CLS - LDS - MCH - BGH - COV - LON - DOV
+   Cost (using original edge costs) = 1098.0
+   Cost (using new edge costs)      = 3371.5  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 3371.5  => red_cost = -6628.5
+   => add column 9 for demand 0
+Routing demand 1)  EDI - PLY : 2.0
+   Path: EDI - CLS - LDS - MCH - BGH - BRS - PLY
+   Cost (using original edge costs) = 1134.0
+   Cost (using new edge costs)      = 1238.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 1238.0  => red_cost = -8762.0
+   => add column 10 for demand 1
+---------------------------- solve DW Master LP ----------------------------
+Calling LP solver EMSOL:
+--------------------------- report LP solution -----------------------------
+Routes usage in LP solution:
+  Dummy Route demand 0 = 1.1102230246251565E-16
+  Dummy Route demand 1 = 0.0
+  INV - EDI - CLS - MCH - BGH - OXD - LON - DOV = 0.0
+  EDI - CLS - MCH - BGH - BRS - PLY = 0.25
+  INV - EDI - NCL - LDS - COV - LON - DOV = 0.6666666666666666
+  EDI - GLA - CLS - MCH - BGH - BRS - PLY = 0.75
+  INV - GLA - CLS - LDS - COV - LON - DOV = 0.3333333333333333
+  EDI - CLS - LDS - COV - BGH - BRS - PLY = 0.0
+  INV - GLA - CLS - MCH - BGH - OXD - LON - DOV = 0.0
+  INV - EDI - CLS - LDS - MCH - BGH - COV - LON - DOV = 0.0
+  EDI - CLS - LDS - MCH - BGH - BRS - PLY = 0.0
+Edge usage and multipliers in LP solution:
+  edge INV - GLA: 0.5 / 0.5    1561.6666666666665
+  edge INV - EDI: 1.0 / 1.0    1540.6666666666665
+  edge GLA - EDI: 1.5 / 2.0    -0.0
+  edge GLA - CLS: 2.0 / 2.0    4381.0
+  edge CLS - EDI: 0.5 / 0.5    4433.0
+  edge NCL - EDI: 1.0 / 1.0    4425.0
+  edge CLS - NCL: 0.0 / 1.0    -0.0
+  edge CLS - LDS: 0.5 / 0.5    -0.0
+  edge NCL - LDS: 1.0 / 1.5    -0.0
+  edge LIV - MCH: 0.0 / 2.0    -0.0
+  edge MCH - CLS: 2.0 / 2.0    72.0
+  edge MCH - LDS: 0.0 / 2.0    -0.0
+  edge BGH - MCH: 2.0 / 3.0    -0.0
+  edge COV - LDS: 1.5 / 1.5    40.0
+  edge BGH - COV: 0.0 / 1.5    -39.0
+  edge BGH - OXD: 0.0 / 3.0    -19.0
+  edge OXD - COV: 0.0 / 2.0    -0.0
+  edge BRS - BGH: 2.0 / 2.0    -0.0
+  edge RDG - OXD: 0.0 / 2.0    -0.0
+  edge BRS - RDG: 0.0 / 2.0    -0.0
+  edge COV - LON: 1.5 / 2.0    -0.0
+  edge OXD - LON: 0.0 / 4.0    -0.0
+  edge RDG - LON: 0.0 / 3.0    -0.0
+  edge PLY - BRS: 2.0 / 2.0    -0.0
+  edge PLY - STH: 0.0 / 1.5    -0.0
+  edge RDG - STH: 0.0 / 2.0    -0.0
+  edge STH - LON: 0.0 / 3.0    -0.0
+  edge BTN - STH: 0.0 / 2.0    -0.0
+  edge BTN - LON: 0.0 / 2.0    -0.0
+  edge DOV - LON: 1.5 / 3.0    -0.0
+  edge BTN - DOV: 0.0 / 2.0    -0.0
+
+=============================== start DW iter 6  ==========================
+
+------------------------------ set new edge costs -------------------------
+New Cost: INV - GLA : 1747.6666666666665
+New Cost: INV - EDI : 1703.6666666666665
+New Cost: GLA - EDI : 44.0
+New Cost: GLA - CLS : 4485.0
+New Cost: CLS - EDI : 4529.0
+New Cost: NCL - EDI : 4548.0
+New Cost: CLS - NCL : 60.0
+New Cost: CLS - LDS : 118.0
+New Cost: NCL - LDS : 99.0
+New Cost: LIV - MCH : 34.0
+New Cost: MCH - CLS : 188.0
+New Cost: MCH - LDS : 70.0
+New Cost: BGH - MCH : 80.0
+New Cost: COV - LDS : 150.0
+New Cost: BGH - COV : 0.0
+New Cost: BGH - OXD : 38.0
+New Cost: OXD - COV : 74.0
+New Cost: BRS - BGH : 77.0
+New Cost: RDG - OXD : 26.0
+New Cost: BRS - RDG : 74.0
+New Cost: COV - LON : 86.0
+New Cost: OXD - LON : 48.0
+New Cost: RDG - LON : 42.0
+New Cost: PLY - BRS : 126.0
+New Cost: PLY - STH : 155.0
+New Cost: RDG - STH : 36.0
+New Cost: STH - LON : 72.0
+New Cost: BTN - STH : 44.0
+New Cost: BTN - LON : 56.0
+New Cost: DOV - LON : 80.0
+New Cost: BTN - DOV : 84.0
+------------- find new routes by solving shortest path problem  ------------
+Routing demand 0)  INV - DOV : 1.5
+   Path: INV - EDI - CLS - LDS - COV - LON - DOV
+   Cost (using original edge costs) = 979.5
+   Cost (using new edge costs)      = 10000.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 10000.0  => red_cost = 0.0
+   => column not added
+Routing demand 1)  EDI - PLY : 2.0
+   Path: EDI - CLS - MCH - BGH - BRS - PLY
+   Cost (using original edge costs) = 990.0
+   Cost (using new edge costs)      = 10000.0  (this equals col_cost below)
+   RED_COST: cstar = 10000.0 col_cost = 10000.0  => red_cost = 0.0
+   => column not added
+No columns added => D-W has converged!
+
+
+================== Solution ==================
+Routing demand 0)  INV - DOV : 1.5
+ Route 0: weight=1.1102230246251565E-16  cost=10000.0
+    Edges used: 
+ Route 4: weight=0.6666666666666666  cost=991.5
+    Edges used:   1  5  8  13  20  29
+ Route 6: weight=0.3333333333333333  cost=1026.0
+    Edges used:   0  3  7  13  20  29
+Routing demand 1)  EDI - PLY : 2.0
+ Route 3: weight=0.25  cost=990.0
+    Edges used:   4  10  12  17  23
+ Route 5: weight=0.75  cost=1094.0
+    Edges used:   2  3  10  12  17  23
+ EMSOL: ifail= 0, f=   16986.6667, LP iters:  3
+ EMSOL: ifail= 0, f=   5062.33333, LP iters:  6
+ EMSOL: ifail= 0, f=   2071., LP iters:  7
+ EMSOL: ifail= 0, f=   2071., LP iters:  9
+ EMSOL: ifail= 0, f=   2071., LP iters:  12
